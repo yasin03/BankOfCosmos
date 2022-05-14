@@ -1,7 +1,5 @@
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ExtractOfAccount {
 
@@ -11,8 +9,8 @@ public class ExtractOfAccount {
     // DateTimeFormatter	    Formatter for displaying and parsing date-time objects
 
     private String idNumber;
-    private LocalDate dt;
-    private LocalTime tm;
+    private LocalDate date;
+    private LocalTime time;
     private String action;
     private double amount;
 
@@ -21,26 +19,26 @@ public class ExtractOfAccount {
     }
 
     public ExtractOfAccount(String action, double amount) {
-        this.dt = LocalDate.now();
-        this.tm = LocalTime.now();
+        this.date = LocalDate.now();
+        this.time = LocalTime.now();
         this.action = action;
         this.amount = amount;
     }
 
-    public LocalDate getDt() {
-        return dt;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setDt(LocalDate dt) {
-        this.dt = LocalDate.now();
+    public void setDate(LocalDate dt) {
+        this.date = LocalDate.now();
     }
 
-    public LocalTime getTm() {
-        return tm;
+    public LocalTime getTime() {
+        return time;
     }
 
-    public void setTm(LocalTime tm) {
-        this.tm = LocalTime.now();
+    public void setTime(String tm) {
+        this.time =LocalTime.now();
     }
 
     public String getAction() {
@@ -62,8 +60,8 @@ public class ExtractOfAccount {
     @Override
     public String toString() {
         return "ExtractOfAccount{" +
-                "dt=" + dt +
-                ", tm=" + tm +
+                "dt=" + date +
+                ", tm=" + time +
                 ", action='" + action + '\'' +
                 ", amount='" + amount + '\'' +
                 '}';

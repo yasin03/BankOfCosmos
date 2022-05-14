@@ -10,9 +10,6 @@ import java.util.Map;
 public class asd {
     public static void main(String[] args) {
 
-        Map<String, ExtractOfAccount> extAcc = new HashMap<>();
-
-
 
 
         String date ="Date";
@@ -41,8 +38,7 @@ public class asd {
         System.out.println("\n\n\n\n\n----------------------------------------");
         System.out.println("HAVE A GOOD DAY - WE WISH YOU AGAIN");
 
-        Collection<ExtractOfAccount> asd = extAcc.values();
-        System.out.println(asd);
+
 
 
 

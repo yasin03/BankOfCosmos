@@ -19,12 +19,12 @@ public class Customers {
     public Customers() {
     }
 
-    public Customers(String name, String surname, String idNumber, String password, double balaceTRY, double balanceUSD, String debit, String telephone, int monthlyInCome) {
+    public Customers(String name, String surname, String idNumber, String password, double balanceTRY, double balanceUSD, String debit, String telephone, int monthlyInCome) {
         this.name = name;
         this.surname = surname;
         this.idNumber = idNumber;
         this.password = password;
-        this.balanceTRY = balaceTRY;
+        this.balanceTRY = balanceTRY;
         this.balanceUSD = balanceUSD;
         setDebit(debit);
         this.telephone = telephone;

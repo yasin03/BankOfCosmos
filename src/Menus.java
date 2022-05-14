@@ -2,9 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import static java.lang.System.exit;
-
-public class Menus extends OperationsTRY{   //Ana menu
+public class Menus extends OperationsTRY {   //Ana menu
     public static final String W = "\u001B[37m";
     public static final String R = "\u001B[31m";
     public static final String G = "\u001B[32m";
@@ -12,12 +10,9 @@ public class Menus extends OperationsTRY{   //Ana menu
     public static final String B = "\u001B[34m";
     static Scanner scanner = new Scanner(System.in);
 
- static Customers currentCustomer; // hangi müşteri işlem yapıyor onu takip etmek için variable
+    static Customers currentCustomer; // hangi müşteri işlem yapıyor onu takip etmek için variable
 
-    static Map<String,Customers> customersMap = new HashMap<>();//customerID string olduğu için, map'in key'lerini String olarak yazdım
-
-
-
+    static Map<String, Customers> customersMap = new HashMap<>();//customerID string olduğu için, map'in key'lerini String olarak yazdım
 
 
     public static void registerMenu() {
@@ -31,9 +26,9 @@ public class Menus extends OperationsTRY{   //Ana menu
         System.out.print("Please make your choice: ");
 
 
-        if(TryCatch.intGirisi()==1){
+        if (TryCatch.intGirisi() == 1) {
             login();
-        }else {
+        } else {
             register();
         }
     }
@@ -61,7 +56,7 @@ public class Menus extends OperationsTRY{   //Ana menu
         currentCustomer = customer1; // we now know that this particular customer is using our app
 
 
-        customersMap.put(customer1.getIdNumber(),customer1);
+        customersMap.put(customer1.getIdNumber(), customer1);
         System.out.println("New customer has been registered to our system. You are being redirected to the main menu...");
         TryCatch.threadSleep(1000);
         System.out.println(customersMap);
@@ -74,31 +69,31 @@ public class Menus extends OperationsTRY{   //Ana menu
 
         System.out.println("Please enter your ID number: ");
         String loginId = scanner.nextLine();
-             if(!customersMap.containsKey(loginId)){
-                 System.out.println("No such customer exists in our system by the ID you provided.\nPress 1 to register new customer,\n" +
-                         "Press 2 to try to login again,\nPress 0 to exit login screen: ");
+        if (!customersMap.containsKey(loginId)) {
+            System.out.println("No such customer exists in our system by the ID you provided.\nPress 1 to register new customer,\n" +
+                    "Press 2 to try to login again,\nPress 0 to exit login screen: ");
 
-                while(true){ // kullanıcı 1,2 veya 0'dan başka giriş yapmaması için while döngüsüne aldım
-                    int loginSelect = TryCatch.intGirisi();
-                 if(loginSelect==1){
-                     register();
-                     break;
-                 } else if(loginSelect==2){
-                     login();
-                     break;
-                 } else if(loginSelect==0){
-                     registerMenu();
-                     break;
-                 } else {
-                     System.out.println("Invalid selection, please pres 1, 2 or 0 to proceed: ");
+            while (true) { // kullanıcı 1,2 veya 0'dan başka giriş yapmaması için while döngüsüne aldım
+                int loginSelect = TryCatch.intGirisi();
+                if (loginSelect == 1) {
+                    register();
+                    break;
+                } else if (loginSelect == 2) {
+                    login();
+                    break;
+                } else if (loginSelect == 0) {
+                    registerMenu();
+                    break;
+                } else {
+                    System.out.println("Invalid selection, please pres 1, 2 or 0 to proceed: ");
 
-                 }}
-             } else {
-                 System.out.println("Welcome to Cosmos Bank Mr/Mrs "+customersMap.get(loginId).getName()+"! redirecting to the main menu...");
-                 TryCatch.threadSleep(1000);
-                 mainMenu();
-             }
-
+                }
+            }
+        } else {
+            System.out.println("Welcome to Cosmos Bank Mr/Mrs " + customersMap.get(loginId).getName() + "! redirecting to the main menu...");
+            TryCatch.threadSleep(1000);
+            mainMenu();
+        }
 
 
     }
@@ -121,7 +116,7 @@ public class Menus extends OperationsTRY{   //Ana menu
                 + "   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯            ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯  " + B);
 
         System.out.print("Please make your selection: ");
-        switch(TryCatch.intGirisi()){
+        switch (TryCatch.intGirisi()) {
             case 1:
                 break;
             case 2:
@@ -143,12 +138,16 @@ public class Menus extends OperationsTRY{   //Ana menu
         }
 
 
-   }//main menu
+    }//main menu
 
+    static void defCustomer() {
+        Customers customer2 = new Customers("Marcia", "Rubra", "2785", "Aa123",12.550,2780.00,"n", "+27 (772) 269-4929",12000);
+        customersMap.put("2785",customer2);
+    }
+/*
+    insert into MOCK_DATA (name, surname, id, password, phone) values ('Darelle', 'Fantin', 2572, 'mK6fr9', '+57 (881) 873-6567');
+    insert into MOCK_DATA (name, surname, id, password, phone) values ('Marcia', 'Rubra', 2785, 'IRAcgxlilS', '+27 (772) 269-4929');
+    insert into MOCK_DATA (name, surname, id, password, phone) values ('Cly', 'Allchin', 5325, '1LQB15GZWd8', '+255 (989) 688-6877');
 
-
-
-
-
-
+ */
 }//class

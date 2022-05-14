@@ -1,3 +1,4 @@
+import java.security.KeyStore;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -5,8 +6,8 @@ import java.util.*;
 
 public class CustomerServices {
 
-    static Map<String, ExtractOfAccount> extAcc = new HashMap<>();
-
+    static Map<Integer, ExtractOfAccount> extAcc = new HashMap<>();
+    static int num =1;
 
     public static void addCustomer(){
 
@@ -25,17 +26,19 @@ public class CustomerServices {
     }
 
     public static void extractAccount(String action, double amount, String id){
+
         ExtractOfAccount obj = new ExtractOfAccount();
-        obj.setDt(LocalDate.now());
-        obj.setTm(LocalTime.now());
+        obj.setDate(LocalDate.now());
+        obj.setTime(String.valueOf(LocalTime.now()));
         obj.setAction(action);
         obj.setAmount(amount);
-        extAcc.put(id, obj);
+        extAcc.put(num, obj);
+        num++;
 
     }
     public static void exit(){
 
-        String date ="Date";
+        String date ="Time";
         String action ="Action";
         String amount ="Amount";
 
@@ -45,10 +48,9 @@ public class CustomerServices {
 
 
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd MMM yyyy");
-        DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("h:mm");
+        DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("k:mm");
         String date3 = date2.format(dateFormat);
         String time3 = time2.format(timeFormat);
-
 
 
         System.out.println("\nCOSMOS BANK \nEXTRACT OF ACCOUNT______________________");
@@ -57,19 +59,23 @@ public class CustomerServices {
 
         System.out.printf("\n%-10s %-22s %-10s",date,action,amount);
         System.out.println("\n----------------------------------------");
-        System.out.printf("%-10s %-22s %-10s",time3,action,1250.00);
+
+        extList(extAcc);
         System.out.println("\n\n\n\n\n----------------------------------------");
         System.out.println("HAVE A GOOD DAY - WE WISH YOU AGAIN");
-
-        Collection<ExtractOfAccount> asd = extAcc.values();
-
-
-
 
 
     }
 
+public static void extList(Map<Integer, ExtractOfAccount> extAcc){
+        Set<Map.Entry<Integer,ExtractOfAccount>> abc = extAcc.entrySet();
+    DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("k:m:s");
+    for (Map.Entry<Integer,ExtractOfAccount> w : abc) {
+        System.out.printf("%-10s %-22s %-10s",w.getValue().getTime().format(timeFormat),w.getValue().getAction(),w.getValue().getAmount());
+        System.out.println();
+    }
 
+}
 
 
 
