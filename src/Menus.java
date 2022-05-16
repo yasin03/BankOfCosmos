@@ -131,7 +131,7 @@ public class Menus extends OperationsTRY {   //Ana menu
                 creditRatingCheck();
                 break;
             case 7:
-                CustomerServices.exit();
+                InfoServices.exit();
                 break;
             case 8:
                 break;

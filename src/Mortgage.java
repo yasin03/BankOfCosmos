@@ -20,14 +20,14 @@ public class Mortgage implements Credits {
                     Menus.currentCustomer.setBalaceTRY(Menus.currentCustomer.getBalaceTRY()+20000);
                     System.out.println("Success! 20.000 TRY Mortgage Credit has been transferred to your account. Your curren account balance is "+ Menus.currentCustomer.getBalaceTRY());
                     Menus.currentCustomer.setPreviousDebit(Menus.currentCustomer.getPreviousDebit()+20000*2.9);// ödenmemiş kredi borçlarına eklendi
-                    CustomerServices.extractAccount("Kredi çekildi",20000,Menus.currentCustomer.getIdNumber());
+                    InfoServices.extractAccount("Kredi çekildi",20000,Menus.currentCustomer.getIdNumber());
                     Menus.mainMenu();
                     break;
                 case 2:
                     Menus.currentCustomer.setBalaceTRY(Menus.currentCustomer.getBalaceTRY()+35000);
                     System.out.println("Success! 35.000 TRY Mortgage Credit has been transferred to your account. Your curren account balance is "+ Menus.currentCustomer.getBalaceTRY());
                     Menus.currentCustomer.setPreviousDebit(Menus.currentCustomer.getPreviousDebit()+35000*2.1);// ödenmemiş kredi borçlarına eklendi
-                    CustomerServices.extractAccount("Kredi çekildi",35000,Menus.currentCustomer.getIdNumber());
+                    InfoServices.extractAccount("Kredi çekildi",35000,Menus.currentCustomer.getIdNumber());
                     Menus.mainMenu();
                     break;
                 case 3:

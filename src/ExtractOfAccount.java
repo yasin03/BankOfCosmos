@@ -3,11 +3,6 @@ import java.time.LocalTime;
 
 public class ExtractOfAccount {
 
-    // LocalDate	            Represents a date (year, month, day (yyyy-MM-dd))
-    // LocalTime     	        Represents a time (hour, minute, second and nanoseconds (HH-mm-ss-ns))
-    // LocalDateTime	        Represents both a date and a time (yyyy-MM-dd-HH-mm-ss-ns)
-    // DateTimeFormatter	    Formatter for displaying and parsing date-time objects
-
     private String idNumber;
     private LocalDate date;
     private LocalTime time;
@@ -23,6 +18,14 @@ public class ExtractOfAccount {
         this.time = LocalTime.now();
         this.action = action;
         this.amount = amount;
+    }
+
+    public String getIdNumber() {
+        return idNumber;
+    }
+
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber;
     }
 
     public LocalDate getDate() {
